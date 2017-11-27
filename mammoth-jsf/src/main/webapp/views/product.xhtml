@@ -1,0 +1,31 @@
+<ui:composition template="/templates/template.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	>
+	    <ui:define name="title">Product Page</ui:define>
+	    <ui:define name="content">
+	    	<h:form>
+	    		<h:commandButton value="Find All Products" update="products" actionListener="#{productMB.findAll()}"/>
+	    		<p:dataTable id="products" var="product" value="#{productMB.products}" rendered="#{not empty productMB.products}">
+				    <p:column headerText="Id">
+				        <h:outputText value="#{product.id}" />
+				    </p:column>
+				 
+				    <p:column headerText="name">
+				        <h:outputText value="#{product.name}" />
+				    </p:column>
+				 
+				    <p:column headerText="surname">
+				        <h:outputText value="#{product.barcode}" />
+				    </p:column>				 		
+				    
+				    <p:column headerText="salePercentageId">
+				        <h:outputText value="#{product.salePercentage.id}" />
+				    </p:column>				 							    	    
+				</p:dataTable>			
+	    	</h:form>	    	   
+	    </ui:define>
+</ui:composition>
